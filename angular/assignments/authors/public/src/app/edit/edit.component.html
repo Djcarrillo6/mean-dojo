@@ -1,0 +1,23 @@
+    <div class="container">
+        <a [routerLink]="['/home']">Home</a>
+        <h2>Edit this author:</h2>
+        <form (submit)="saveEditedAuthor()">
+            <p><label for="name">Name: </label>
+                <input type="text" name="name" 
+                required
+                minlength="2"
+                [(ngModel)]="authorToShow.name" 
+               
+                [value]="authorToShow.name"></p>
+                <div *ngIf="name.invalid" class="alert alert-danger">
+                    <div *ngIf="name.errors.required">
+                        An author name is required!
+                    </div>
+                    <div *ngIf="name.errors.minlength">
+                        The author's name must be at least 2 characters in length!
+                    </div>
+                </div>
+            <button type="button" class="btn btn-warning" [routerLink]="['/home']">Cancel</button>
+            <input class="btn btn-success" type="submit" value="Submit">
+        </form>
+    </div>

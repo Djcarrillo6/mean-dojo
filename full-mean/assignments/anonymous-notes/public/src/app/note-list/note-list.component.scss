@@ -1,0 +1,9 @@
+.list {
+  max-height: auto;
+  overflow-y: scroll;
+}
+
+p {
+  display: flex;
+  flex-direction: row-reverse;
+}

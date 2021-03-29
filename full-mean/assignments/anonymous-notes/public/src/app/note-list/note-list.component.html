@@ -1,0 +1,9 @@
+<div class="container list" >    
+  <div class="row">
+    <div class="col">
+      <div class="card p-3" *ngFor="let note of wallOfNotes">
+        <h4 >{{note.text}}</h4>  <p>Noted on:  {{note.createdAt}}</p>
+      </div>
+    </div>
+  </div>
+</div>

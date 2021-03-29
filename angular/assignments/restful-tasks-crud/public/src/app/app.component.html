@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4>New Task</h4>
+      <form class="form-group" (submit)="onSubmit()">
+        <!-- use the json pipe to see how newTask changes in real time -->
+        <p> {{ newTask | json }} </p>
+        <p>Title: <input class="form-control" type="text" name="title" [(ngModel)]="newTask.title" /></p>
+        <p>Description<input class="form-control" type="text" name="description" [(ngModel)]="newTask.description" /></p>
+        <input class="form-control btn btn-success" type="submit" value="Create Task" />
+    </form>
+    </div>
+  </div>
+
+  <button *ngIf="!showTasks" (click)="onButtonClick()">View Tasks</button>
+  <button *ngIf="showTasks" (click)="onButtonClick()">Close Tasks</button>
+
+
+     
+  <div *ngIf="showTasks" >    
+      <div class="row">
+        <div class="col">
+          <h4>Task List</h4>
+          <div class="card p-3" *ngFor="let task of tasks">
+            <h4 >{{task.title}}</h4>
+            <button class="btn-primary" (click)="selectedTask($event)" [value]="task._id">Show</button>
+            <form class="form-group" (submit)="onDelete(task._id)">
+              <input class="form-control btn-danger" type="submit" value="Delete Task">
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+
+   <!-- If a task is clicked on from the from the root component. -->
+   <div *ngIf="showTask" class="col">
+    <h4>Edit a task</h4>
+    <form *ngFor="let t of currentTask" class="form-group" (submit)="onUpdate(t._id)">
+      <!-- use the json pipe to see how newTask changes in real time -->
+      <p> {{ t | json }} </p>
+      <p>Title: <input class="form-control" type="text" name="title" [(ngModel)]="t.title" /></p>
+      <p>Description<input class="form-control" type="text" name="description" [(ngModel)]="t.description" /></p>
+      <input class="form-control btn btn-success" type="submit" value="Update Task"/>
+    </form>
+  </div>
+<!-- ---------------------------------------------------------------- -->
+
+</div>
+
+<!-- Binding the child component's 'taskToShow' attribute to the current value of the parent components's 'showTask' attribute. -->
+<app-task *ngIf="showTask" [taskToShow]="currentTask" ></app-task>
+
+
+<router-outlet></router-outlet>

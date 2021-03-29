@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anonymous Notes Landing Page</title>
+</head>
+<body>
+  
+  <h1>Anonymous Notes</h1>
+  <form class="form-group" (submit)="onSubmit()">
+    <!-- use the json pipe to see how newNote changes in real time -->
+    <p> {{ newNote | json }} </p>
+    <p>Note: <input class="form-control" type="text" name="text" [(ngModel)]="newNote.text"/></p>
+    <input class="form-control btn btn-success" type="submit" value="Add Note" />
+</form>
+
+</body>
+</html>
+
+<app-note-list [wallOfNotes]="notes" ></app-note-list>
+
+
+<router-outlet></router-outlet>
+
