@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Quotes</title>
+</head>
+<body>
+  <div class='row'>
+    <div class='col-md-12 text-center' *ngIf='errors.length'>
+      <div *ngFor='let err of errors'>
+        <p class='alert alert-danger'>{{ err.message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <a [routerLink]="['/home']">Home</a>
+  <h3>Provide a quote by {{author}}</h3>
+  <p>{{ newQuoteContent | json }}</p>
+  <form (submit)="addQuoteOnSubmit()" class="form-group">
+    <!-- <p *ngIf="name.errors"><span style="color:red">Name must be 3 characters long.</span> </p> -->
+    <label>Quote:</label>
+    <input type="text" class="form-control" name="content" [(ngModel)]="newQuoteContent.content"/>
+    <input type="submit" class="btn btn-outline-secondary">
+    <button [routerLink]="['/home']" class="btn btn-outline-secondary">Cancel</button>
+     <br>
+    </form>
+</body>
+</html>

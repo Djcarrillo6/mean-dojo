@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="container">
+     <a [routerLink]="['/home']"><h4>Home</h4></a>
+   <a [routerLink]="['/write/', currentQuoteObjectId]" style="margin-left:20px;">Add a quote</a> 
+    <h3>We have quotes by:</h3>
+    <p>{{ currentQuoteObject | json }}</p>
+    <h6>Quotes by: {{authorName}}</h6>
+      <div class='table'>
+				<table class='table table-bordered table-hover mt-5'>
+            <thead>
+              <tr>
+                <th>Quote Idx</th>
+                <th>Quote</th>
+                <th>Votes</th>
+                <th>Actions Available</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let quote of quotes; index as i;">
+                <td>{{i}}</td>
+                <td>{{quote.content}}</td>
+                <td>{{quote.votes}}</td>
+                <td>
+                  <button (click)="vote(currentQuoteObjectId,quote,1)" class="btn btn-outline-success">Vote Up</button>
+                  <button (click)="vote(author._id,quote,-1)" class="btn btn-outline-warning ml-2">Vote Down</button>
+                  <button (click)="deleteOnClick(quote)" class="btn btn-outline-danger ml-2">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+				</table>
+        </div>
+   
+  </div>
+</body>
+</html>
