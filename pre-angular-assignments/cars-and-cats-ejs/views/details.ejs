@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel='stylesheet' href='stylesheets/style.css'>
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<a href="/cats"><button>Back to All Cats</button></a>
+		<h1>Details Page for <%= context.name %></h1>
+		<img src="<%= context.pic %>" alt='profile pic'>
+		<div class='info'>
+			<p>Favorite food: <%= context.food %></p>
+			<p>Age: <%= context.age %> </p>
+			<p>Sleeping spots:
+				<ul>
+					<% for (let spot of spots) { %>
+						<li><%= spot %></li>
+					<% } %>
+				</ul>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

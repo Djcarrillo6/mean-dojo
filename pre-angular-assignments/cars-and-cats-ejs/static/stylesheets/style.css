@@ -1,0 +1,43 @@
+.container {
+	width: 800px;
+	height: 600px;
+	padding: 20px 20px;
+	margin: auto;
+}
+
+h1 {
+	margin: 10px 65px;
+	font-size: 34px;
+	font-style: normal;
+}
+
+.header {
+	background-color: rgb(46, 28, 148);
+	padding: 10px 10px;
+}
+
+
+.main {
+	margin: 10px auto;
+	padding: 20px 20px;
+	background-color: rgb(190, 190, 190);
+	;
+}
+
+img {
+	max-width: 250px;
+	margin-bottom: 10px;
+	vertical-align: bottom;
+	border-radius: 80px 80px;
+	border: 5px solid red;
+}
+
+.row {
+	display: block;
+}
+
+.col {
+	display: inline-block;
+	text-align: center;
+	margin: 10px 10px;
+}
