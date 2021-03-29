@@ -1,0 +1,38 @@
+.container {
+	padding: 20px 20px
+}
+
+.messageForm {
+	margin: auto;
+}
+
+.row {
+	padding: 10px 10px;
+  margin: auto;
+
+}
+
+.messages {
+	color: green;
+
+	height: fit-content;
+	display: block;
+}
+
+.comments {
+
+	height: fit-content;
+	margin: 10px 10px;
+	display: block;
+}
+
+.commentForm {
+
+	margin: 0px 10px;
+	display: block;
+}
+
+button {
+	margin: 0px 15px;
+  border-radius: 5px;
+}
