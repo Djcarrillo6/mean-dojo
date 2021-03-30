@@ -1,0 +1,32 @@
+
+<div class='row'>
+  <div class='col-md-12 text-center' *ngIf='errors.length'>
+    <div *ngFor='let err of errors'>
+      <p class='alert alert-danger'>{{ err.message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+
+<a [routerLink]="['/home']">Home</a>
+<p>Edit this product:</p>
+
+<form (submit)="editProduct()" class="form-group">
+  {{ product | json }}
+  <label for="title">Title:</label>
+  <input name="product.title" [(ngModel)]="product.title" type="text" id="title" class="form-control">
+
+  <label for="price">Price:</label>
+  <input name="product.price" [(ngModel)]="product.price"  id="price" class="form-control">
+
+  <label for="image">ImageUrl:</label>
+  <input name="product.imageUrl" [(ngModel)]="product.imageUrl" type="text" id="image" class="form-control">
+  
+  <button (click)="deleteProduct()" class="btn">Delete</button>
+  <input (click)="createAu($event)" type="submit" value="Update" class="btn btn-primary"> 
+  <br>
+  
+</form>

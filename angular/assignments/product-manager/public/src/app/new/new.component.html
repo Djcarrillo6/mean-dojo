@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head> 
+<body>
+  <div class='row'>
+    <div class='col-md-12 text-center' *ngIf='errors.length'>
+      <div *ngFor='let err of errors'>
+        <p class='alert alert-danger'>{{ err.message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+      <div class="card bg-light width:300px;">
+        <div class="card-body text-center">
+
+          <a [routerLink]="['/home']">Home</a>
+          <h2 class="card-title">Create new product:</h2>
+          
+          <form (submit)="createProd()" class="form-group" style="width:300px">
+          <label>Title:</label>
+            <input
+            class="form-control"
+            type="text" 
+            name="product.title"
+            required
+            [(ngModel)]="product.title"
+            #title="ngModel"/> 
+              
+            <label>Price:</label>
+            <input name="product.price" [(ngModel)]="product.price"  id="price" class="form-control">
+            <label for="image">ImageUrl:</label>
+            <input name="product.imageUrl" [(ngModel)]="product.imageUrl" type="text" id="image" class="form-control"><hr>
+            <input type="submit" class="btn btn-success">
+            <button [routerLink]="['/home']" class="btn btn-danger ml-2">Cancel</button>
+            <input (click)="createAu($event)" type="submit" value="Create" class="btn">
+            <br> 
+            </form>
+          </div>
+        </div>
+    </div>
+</body>
+</html>
